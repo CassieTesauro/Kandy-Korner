@@ -9,7 +9,7 @@ export const ProductList = () => {
 
     useEffect( //initial useEffect to fetch the data and store it 
         () => {
-            fetch("http://localhost:8088/products") //fetch and translate the API JSON state
+            fetch("http://localhost:8088/products?_expand=productType") //fetch and translate the API JSON state
                 .then(res => res.json())
                 .then((fetchedAPIProductsData) => { 
                     productsFunction(fetchedAPIProductsData) //use the function to put the state into the locations variable to store locally
@@ -27,8 +27,8 @@ export const ProductList = () => {
                                     <ul>{product.name}
                                         <li>{product.id}</li>
                                         <li>{product.price}</li>
-                                        <li>{product.productTypeId}</li>
-                                    </ul>
+                                        <li>{product.productType.type}</li>
+                                </ul>
                                </div>
                     }
                 )
