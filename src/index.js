@@ -4,6 +4,8 @@ import './index.css';
 import { KandyKorner } from "./components/KandyKorner"  //importing the module that determines layout and order of all components; then calling the function from that module down below.
 import reportWebVitals from './reportWebVitals';
 
+//Module Responsibility: Call the function KandyKorner, which is like a 'hub' for the layout and rendering functions
+
 ReactDOM.render(
   <React.StrictMode>
     <KandyKorner />
