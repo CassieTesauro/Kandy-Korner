@@ -92,6 +92,20 @@ export const EmployeeForm = () => {
                         type="checkbox" />
                 </div>
             </fieldset>
+            <fieldset>
+                <div className="form-group">
+                    <label htmlFor="fullTime">Full Time:</label>
+                    <input
+                        onChange={
+                            (evt) => {
+                                const copy = { ...employee }
+                                copy.fullTime = evt.target.checked
+                                updateEmployee(copy)
+                            }
+                        }
+                        type="checkbox" />
+                </div>
+            </fieldset>
             <button className="btn btn-primary" onClick={finishHiring}>
                 Finish Hiring
             </button>
