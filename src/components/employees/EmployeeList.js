@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react" 
-import { useHistory } from "react-router-dom"
+import { useHistory } from "react-router-dom"  
     
-
+//NEED TO DISPLAY EMPLOYEE'S LOCATION NAME
 
 export const EmployeeList = () => { 
    
@@ -10,12 +10,12 @@ export const EmployeeList = () => {
     const history = useHistory()
 
 
-    useEffect(  //use effect is like fetch get set alltogether.  2 parameters:  what function should run, and an array holding the state value of when it should run.
+    useEffect(  // 2 parameters:  what function should run, and an array holding the state value of when it should run.
         () => {
-            fetch("http://localhost:8088/employees") 
+            fetch("http://localhost:8088/employees?_expand=location") 
                 .then(res => res.json())  
                 .then((fetchedAPIEmployeeArray) => {   
-                    changeEmployee(fetchedAPIEmployeeArray)  //invoking here triggers the use effect on line 22
+                    changeEmployee(fetchedAPIEmployeeArray)  
                 })  
         },
         []
@@ -29,7 +29,7 @@ export const EmployeeList = () => {
             { 
                 employees.map(
                     (employeeObject) => { 
-                    return <p key={`employee--${employeeObject.id}`}>{employeeObject.name}</p> 
+                    return <p key={`employee--${employeeObject.id}`}>{employeeObject.name} kan't wait to see you at our {employeeObject.location.city} lokation!</p> 
                     }  
                 )
             }

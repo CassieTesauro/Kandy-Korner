@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { useHistory } from "react-router-dom"
+import { useHistory } from "react-router-dom"    //NEED LOCATION DROPDOWN IN FORM
 
 export const EmployeeForm = () => {
 
@@ -106,6 +106,7 @@ export const EmployeeForm = () => {
                         type="checkbox" />
                 </div>
             </fieldset>
+
             <button className="btn btn-primary" onClick={finishHiring}>
                 Finish Hiring
             </button>
