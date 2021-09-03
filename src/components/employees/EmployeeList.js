@@ -7,7 +7,7 @@ export const EmployeeList = () => {
    
     const [employees, changeEmployee] = useState([])  //const [stateVariable, functionToBeUsedOnTheStateVariable] = useStateHook(variable's intitial value aka initial state 'change' 
 
-    const history = useHistory
+    const history = useHistory()
 
 
     useEffect(  //use effect is like fetch get set alltogether.  2 parameters:  what function should run, and an array holding the state value of when it should run.
