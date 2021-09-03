@@ -17,23 +17,24 @@ export const ProductList = () => {
                     [] //we don't put any state in here to watch for changes because this particular use effect is just fetching some data.
                 )
 
-            return ( //code in the curly brackets is JS.  If we need to interpolate within the curly brackets, it's normal JS `${}` format.  Think: popping in and out of vanilla JS.
-                <>
-                    {
-                        products.map(
-                            (product) => {
-                                return <div key={`product--${product.id}`}>
-                                    <ul>{product.name}
-                                        <li>{product.id}</li>
-                                        <li>{product.price}</li>
-                                        <li>{product.productType.type}</li>
-                                    </ul>
-                                </div>
-                            }
-                        )
-                    }
-                </>
-            )
         }
+    )
+
+    return ( //code in the curly brackets is JS.  If we need to interpolate within the curly brackets, it's normal JS `${}` format.  Think: popping in and out of vanilla JS.
+        <>
+            {
+                products.map(
+                    (product) => {
+                        return <div key={`product--${product.id}`}>
+                            <ul>{product.name}
+                                <li>{product.id}</li>
+                                <li>{product.price}</li>
+                                <li>{product.productType.type}</li>
+                            </ul>
+                        </div>
+                    }
+                )
+            }
+        </>
     )
 }
