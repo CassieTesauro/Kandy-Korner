@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter } from 'react-router-dom';
 import './index.css';
 import { KandyKorner } from "./components/KandyKorner"  //importing the module that determines layout and order of all components; then calling the function from that module down below.
 import reportWebVitals from './reportWebVitals';
@@ -8,7 +9,9 @@ import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
+    <BrowserRouter>
     <KandyKorner />
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );
