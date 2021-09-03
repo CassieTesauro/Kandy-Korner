@@ -5,9 +5,10 @@ export const EmployeeForm = () => {
 
     const [employee, updateEmployee] = useState({
         name: "",
-        hourlyRate: 0,
+        hourlyRate: 1, //don't use 0!  It will be invalid.
         manager: false,
-        fullTime: false
+        fullTime: false,
+        locationId: 1
         
 
     });
@@ -33,8 +34,8 @@ export const EmployeeForm = () => {
             name: employee.name,
             hourlyRate: employee.hourlyRate,
             manager: employee.manager,
-            fullTime: employee.fullTime
-
+            fullTime: employee.fullTime,
+            locationId: employee.locationId
         }
 
         const fetchOptions = {
@@ -80,7 +81,7 @@ export const EmployeeForm = () => {
                         onChange={
                             (evt) => {
                                 const copy = { ...employee }
-                                copy.hourlyRate = evt.target.value
+                                copy.hourlyRate = parseInt(evt.target.value)
                                 updateEmployee(copy)
                             }
                         }
