@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react" 
 import { useHistory } from "react-router-dom"  
-    
-//NEED TO DISPLAY EMPLOYEE'S LOCATION NAME
+
 
 export const EmployeeList = () => { 
    

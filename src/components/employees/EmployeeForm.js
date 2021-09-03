@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import { useHistory } from "react-router-dom"    //NEED LOCATION DROPDOWN IN FORM
 
 export const EmployeeForm = () => {
@@ -8,9 +8,22 @@ export const EmployeeForm = () => {
         hourlyRate: 0,
         manager: false,
         fullTime: false
+        
 
     });
 
+    const [locations, setLocations] = useState([]) //This was made to fetch and store locations state in a 'locations' variable so I can map through it below in the locations dropdown.
+   
+ useEffect(
+        () => { 
+            fetch("http://localhost:8088/locations")
+                .then(res => res.json())
+                .then((employeeLocationsFromAPI) => {
+                    setLocations(employeeLocationsFromAPI) //named setLocations because this function takes the data and stores/sets it in the locations variable we made above.
+                })
+        },
+        []
+    )
     const history = useHistory()
 
     const finishHiring = (evt) => {
@@ -104,6 +117,31 @@ export const EmployeeForm = () => {
                             }
                         }
                         type="checkbox" />
+                </div>
+            </fieldset>
+            <fieldset> 
+                <div className="form-group">
+                    <label htmlFor="location">Location:</label>
+                   
+                    <select name="location" id="location"
+                        onChange={
+                            (evt) => {
+                                const copy = { ...employee }
+                                copy.locationId = parseInt(evt.target.value)
+                                updateEmployee(copy)
+                            }
+                        } 
+                    >
+
+                    <option value="locations--0">
+                        Choose location
+                    </option>
+
+                    {
+                        locations.map((location) =>
+                        <option value={location.id}>{location.city}</option>)
+                    }
+                    </select>
                 </div>
             </fieldset>
 
